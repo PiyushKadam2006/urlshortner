@@ -43,3 +43,66 @@ urlshortner/
     │   ├── App.jsx
     │   └── main.jsx
     └── package.json
+
+
+⚙️ Local Installation & Setup
+1. Backend Setup
+Navigate to the backend directory, install dependencies, and set up your environment variables.
+
+Bash
+cd backend
+npm install
+Create a .env file in the backend folder and add your MongoDB connection string:
+
+Code snippet
+MONGO_URI=mongodb://localhost:27017/urlshortener
+PORT=8080
+Start the backend server:
+
+Bash
+npm run dev
+# or
+node server.js
+2. Frontend Setup
+Open a new terminal, navigate to the frontend directory, and install dependencies.
+
+Bash
+cd frontend
+npm install
+Start the Vite development server:
+
+Bash
+npm run dev
+🔌 API Endpoints
+1. Create Short URL
+URL: /api/url/shorten
+
+Method: POST
+
+Body:
+
+JSON
+{
+  "original_url": "[https://www.example.com/very-long-url](https://www.example.com/very-long-url)"
+}
+Success Response: 201 Created
+
+2. Redirect
+URL: /:shortId
+
+Method: GET
+
+Description: Redirects the client to the original URL and increments the click counter by 1.
+
+3. Analytics
+URL: /api/url/analytics/:shortId
+
+Method: GET
+
+Success Response:
+
+JSON
+{
+  "totalClicks": 5
+}
+Author: Piyush Kadam
