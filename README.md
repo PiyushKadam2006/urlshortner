@@ -1,108 +1,125 @@
-# 🔗 MERN Stack URL Shortener
+# 🔗 URL Shortener
 
-A full-stack URL shortening application built with the MERN stack (MongoDB, Express.js, React, Node.js). This project takes long web addresses and converts them into short, manageable links, complete with click analytics and a seamless user interface.
+A full-stack URL shortener application built with a Node.js/Express backend and a Vite-powered frontend, using MongoDB for data persistence.
 
-## 🚀 Features
+---
 
-*   **URL Shortening:** Converts any long URL into a unique, short ID using `nanoid`.
-*   **Redirection System:** Instantly routes users from the short link to the original destination.
-*   **Click Analytics:** Tracks and stores the total number of times a short link has been clicked.
-*   **One-Click Copy:** Frontend features a clipboard integration to easily copy the generated short link.
-*   **RESTful API:** Clean and structured backend endpoints for creating and fetching URLs.
+## 📁 Project Structure
 
-## 🛠️ Tech Stack
-
-**Frontend:**
-*   React.js (Vite)
-*   Axios (for API requests)
-*   CSS
-
-**Backend:**
-*   Node.js
-*   Express.js
-*   MongoDB (Database)
-*   Mongoose (ODM)
-*   nanoid (ID generation)
-*   CORS & dotenv
-
-## 📁 Folder Structure
-
-```text
-urlshortner/
+```
+url-shortener/
 ├── backend/
-│   ├── src/
-│   │   ├── models/
-│   │   │   └── Url.js
-│   │   ├── routes/
-│   │   │   └── urlRoutes.js
-│   │   └── app.js
+│   ├── server.js
 │   ├── .env
-│   └── server.js
+│   └── package.json
 └── frontend/
     ├── src/
-    │   ├── App.jsx
-    │   └── main.jsx
     └── package.json
+```
 
+---
 
-⚙️ Local Installation & Setup
-1. Backend Setup
-Navigate to the backend directory, install dependencies, and set up your environment variables.
+## ⚙️ Local Installation & Setup
 
-Bash
+### 1. Backend Setup
+
+Navigate to the backend directory and install dependencies:
+
+```bash
 cd backend
 npm install
-Create a .env file in the backend folder and add your MongoDB connection string:
+```
 
-Code snippet
+Create a `.env` file in the `backend` folder and add the following environment variables:
+
+```env
 MONGO_URI=mongodb://localhost:27017/urlshortener
 PORT=8080
+```
+
 Start the backend server:
 
-Bash
+```bash
 npm run dev
 # or
 node server.js
-2. Frontend Setup
-Open a new terminal, navigate to the frontend directory, and install dependencies.
+```
 
-Bash
+---
+
+### 2. Frontend Setup
+
+Open a new terminal, navigate to the frontend directory, and install dependencies:
+
+```bash
 cd frontend
 npm install
+```
+
 Start the Vite development server:
 
-Bash
+```bash
 npm run dev
-🔌 API Endpoints
-1. Create Short URL
-URL: /api/url/shorten
+```
 
-Method: POST
+---
 
-Body:
+## 🔌 API Endpoints
 
-JSON
+### 1. Create Short URL
+
+| Property | Value |
+|---|---|
+| **URL** | `/api/url/shorten` |
+| **Method** | `POST` |
+
+**Request Body:**
+
+```json
 {
-  "original_url": "[https://www.example.com/very-long-url](https://www.example.com/very-long-url)"
+  "original_url": "https://www.example.com/very-long-url"
 }
-Success Response: 201 Created
+```
 
-2. Redirect
-URL: /:shortId
+**Success Response:** `201 Created`
 
-Method: GET
+---
 
-Description: Redirects the client to the original URL and increments the click counter by 1.
+### 2. Redirect
 
-3. Analytics
-URL: /api/url/analytics/:shortId
+| Property | Value |
+|---|---|
+| **URL** | `/:shortId` |
+| **Method** | `GET` |
+| **Description** | Redirects the client to the original URL and increments the click counter by 1. |
 
-Method: GET
+---
 
-Success Response:
+### 3. Analytics
 
-JSON
+| Property | Value |
+|---|---|
+| **URL** | `/api/url/analytics/:shortId` |
+| **Method** | `GET` |
+
+**Success Response:**
+
+```json
 {
   "totalClicks": 5
 }
-Author: Piyush Kadam
+```
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** Node.js, Express, MongoDB, Mongoose
+- **Frontend:** React, Vite
+- **Database:** MongoDB
+
+---
+
+## 👤 Author
+
+**Piyush Kadam**
