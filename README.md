@@ -7,13 +7,20 @@ A full-stack URL shortener application built with a Node.js/Express backend and 
 ## 📁 Project Structure
 
 ```
-url-shortener/
+urlshortner/
 ├── backend/
-│   ├── server.js
+│   ├── src/
+│   │   ├── models/
+│   │   │   └── Url.js
+│   │   ├── routes/
+│   │   │   └── urlRoutes.js
+│   │   └── app.js
 │   ├── .env
-│   └── package.json
+│   └── server.js
 └── frontend/
     ├── src/
+    │   ├── App.jsx
+    │   └── main.jsx
     └── package.json
 ```
 
