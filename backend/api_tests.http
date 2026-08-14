@@ -1,0 +1,10 @@
+### 1. Naya Short URL Banane Ke Liye (POST Request)
+POST http://localhost:8080/api/url/shorten
+Content-Type: application/json
+{
+  "original_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+}
+
+### 2. Redirect Test Karne Ke Liye (GET Request)
+# Niche wale URL mein "XYZ123" ko apne generated short_id se replace karein
+GET http://localhost:8080/XYZ123
